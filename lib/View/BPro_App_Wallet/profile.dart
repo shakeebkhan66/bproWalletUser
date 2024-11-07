@@ -1,6 +1,10 @@
+
 import 'package:bpro_app_wallet/View/Controller_And_Constants.dart';
 import 'package:bpro_app_wallet/View/Login_SignUp_Screens/login_mode.dart';
+import 'package:bpro_app_wallet/View/onboarding/onbording.dart';
+import 'package:bpro_app_wallet/providers/auth_register.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -33,8 +37,8 @@ class _ProfileState extends State<Profile> {
         child: Theme(
           data: Theme.of(context).copyWith(
             textSelectionTheme: const TextSelectionThemeData(
-              cursorColor: Colors.green, // Change global cursor color here
-              selectionHandleColor: Colors.green, // Change handle color here
+              cursorColor: Colors.green,
+              selectionHandleColor: Colors.green,
             ),
           ),
           child: Padding(
@@ -144,12 +148,8 @@ class _ProfileState extends State<Profile> {
                     height: 40,
                     child: TextButton(
                         onPressed: () {
-                          Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const LoginMode()),
-                            (Route<dynamic> route) => false,
-                          );
+                          Provider.of<AuthRegister>(context, listen: false).logout();
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Onbording()));
                         },
                         child: const Text(
                           'LOGOUT',

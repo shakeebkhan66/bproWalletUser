@@ -41,7 +41,7 @@ class _DepositState extends State<Deposit> {
       ),
       body: Theme(
         data: Theme.of(context).copyWith(
-          textSelectionTheme: TextSelectionThemeData(
+          textSelectionTheme: const TextSelectionThemeData(
             cursorColor: Colors.green, // Change global cursor color here
             selectionHandleColor: Colors.green, // Change handle color here
           ),
@@ -104,7 +104,7 @@ class _DepositState extends State<Deposit> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Container(
+                  SizedBox(
                     width: 250,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
